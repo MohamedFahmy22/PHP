@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    outline: none;
+    line-height: 1.2;
+    font-size: 1em;
+}
+div.wrapper{
+    overflow: hidden;
+
+}
+div.wrapper div.empForm{
+    float: left;
+}
+div.wrapper div.employees{
+    float: right;
+}
+form.appForm{
+    width: 500px;
+    margin: 20px 50px 0 20px;
+}
+form.appForm fieldset{
+    padding: 10px;
+    background: #f1f1f1;
+    border: solid 1px #e4e4e4;
+
+}
+form.appForm fieldset legend{
+    background: #e4e4e4;
+    padding: 5px;
+    font: 1em Arial, Helvetica, sans-serif;
+    color: #666;
+}
+
+form.appForm fieldset p.message{
+    background: green;
+    color: #fff;
+    padding: 3px;
+    margin-bottom: 3px;
+}
+form.appForm fieldset p.message.error{
+    background: red;
+}
+
+form.appForm table{
+    width: 100px;
+}
+form.appForm table tr td label{
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    color: #666666;
+}
+form.appForm table tr td input[type=text],
+form.appForm table tr td input[type=number]{
+    width: 517%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 2%;
+    font-size: 0.85em;
+}
+form.appForm table tr td input[type=submit]{
+    padding: 8px;
+    border-radius: 3px;
+    background: green;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+form.appForm table tr td{
+    padding: 3px;
+}
+div.wrapper div.employees table{
+    width: 750px;
+    margin: 20px 20px 0 0;
+    border-collapse: collapse;
+}
+div.wrapper div.employees table thead th{
+    text-align: left;
+    padding: 5px;
+    border-right:solid 1px #e4e4e4 ;
+    border-bottom:solid 1px #e4e4e4 ;
+    font: bold 0.9em Arail,Helvetica,sans-serif;
+}
+div.wrapper div.employees table thead th:last-of-type{
+    border-right: none;
+}
+div.wrapper div.employees table tbody td{
+    text-align: left;
+    padding: 5px;
+    border-bottom: solid 1px #e4e4e4;
+    font: 0.8em Arail,Helvetica,sans-serif;
+}
+div.wrapper div.employees table tbody tr:nth-child(2n) td{
+    background: #e1e1e1;
+}

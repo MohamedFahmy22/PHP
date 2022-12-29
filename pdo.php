@@ -55,7 +55,7 @@ if (isset($_POST['sub'])) {
 
 }
 
-         //edit by action and id
+         //update
 if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['id'])){
     $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
     if ($id > 0){
@@ -69,7 +69,22 @@ if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['i
             $user = array_shift($user);
             // return the first element from array that will be object element number zero on array type of Employee Class
             // and object contains all of values of fields
+        }
+    }
+}
 
+if (isset($_GET['action']) && isset($_GET['action']) == 'delete' && isset($_GET['id'])){
+    $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
+    if ($id > 0){
+        $sql = 'DELETE FROM employees WHERE id = :id';
+        $result = $pdo->prepare($sql);  // thats is the result we canmake the fetch of the result
+        $resultFounded = $result->execute(array(':id'=>$id));   // return bool value true id the id is founded we can't make fetch on bool value
+        if ($resultFounded === true)
+        {
+            $_SESSION['message'] = "Employee deleted Successfully";
+            header('Location:http://localhost/advancedphp/pdo.php');
+            session_write_close();
+            exit;
         }
     }
 }
@@ -154,8 +169,6 @@ if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['i
                                 </td>
                             </tr>
 
-
-
                             <tr>
                                 <td>
                                     <input type="submit" name="sub" value="save">
@@ -192,8 +205,8 @@ if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['i
                                 <td><?= $employee->tax ?></td>
                                 <td>
                                     <a href="/advancedphp/pdo.php?action=edit&id=<?= $employee->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    |||
-                                    <a href="/advancedphp/pdo.php?action=delete&id=<?= $employee->id ?>" onclick="if(!confirm('Do You Want to Delete Employee?')return false;" ><i class="fa-sharp fa-solid fa-times"></i></a>
+
+                                    <a href="/advancedphp/pdo.php?action=delete&id=<?= $employee->id ?>" ><i class="fa-sharp fa-solid fa-times"></i></a>
                                 </td>
                         </tr>
                                             <?php

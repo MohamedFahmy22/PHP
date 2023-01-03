@@ -1,5 +1,5 @@
 <?php
-$pdo = null;
+
 try{
     $pdo = new PDO('mysql://hostname=localhost;dbname=php_pdo','root','',
         [

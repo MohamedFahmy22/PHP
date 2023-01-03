@@ -23,6 +23,8 @@ if (isset($_POST['sub'])) {
         ':salary'   => $salary,
         ':tax'  => $tax
     );
+
+// update
     if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['id'])){
         $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
         $sql = 'UPDATE employees SET name = :name ,
@@ -55,7 +57,7 @@ if (isset($_POST['sub'])) {
 
 }
 
-         //update
+        
 if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['id'])){
     $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
     if ($id > 0){
@@ -72,7 +74,7 @@ if (isset($_GET['action']) && isset($_GET['action']) == 'edit' && isset($_GET['i
         }
     }
 }
-
+    // Delete from databasse
 if (isset($_GET['action']) && isset($_GET['action']) == 'delete' && isset($_GET['id'])){
     $id = filter_input(INPUT_GET,'id',FILTER_SANITIZE_NUMBER_INT);
     if ($id > 0){
@@ -206,14 +208,15 @@ if (isset($_GET['action']) && isset($_GET['action']) == 'delete' && isset($_GET[
                                 <td>
                                     <a href="/advancedphp/pdo.php?action=edit&id=<?= $employee->id ?>"><i class="fa-solid fa-pen-to-square"></i></a>
 
-                                    <a href="/advancedphp/pdo.php?action=delete&id=<?= $employee->id ?>" ><i class="fa-sharp fa-solid fa-times"></i></a>
+                                    <a href="/advancedphp/pdo.php?action=delete&id=<?= $employee->id ?>"><i class="fa-sharp fa-solid fa-times"></i></a>
                                 </td>
                         </tr>
                                             <?php
+                                            
                                 }
                             }else{
                         ?>
-                            <td style="text-align: center;color: red" colspan="6">No Employees to list</td>
+                            <td style="text-align: center;color: red" colspan="7">No Employees to list</td>
                         <?php
                             }
                         ?>

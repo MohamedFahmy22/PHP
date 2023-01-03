@@ -29,4 +29,9 @@ class Employee
         return $this->salary - ($this->salary * $this->tax / 100);
     }
 
+    public function FunctionName( )
+    {
+        
+    }
+
 }
